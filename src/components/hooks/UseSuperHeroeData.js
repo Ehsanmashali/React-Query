@@ -1,13 +1,13 @@
 import axios from "axios";
-import { useQuery ,useQueryClient , useMutation} from "react-query";
+import { useQuery, useQueryClient, useMutation } from "react-query";
 
 // API
 const fetchingData = () => {
   return axios.get("http://localhost:4000/superheroes");
 };
-const addSuperHero = (heroe)=>{
-  return axios.post("http://localhost:4000/superheroes",heroe)
-}
+const addSuperHero = (heroe) => {
+  return axios.post("http://localhost:4000/superheroes", heroe);
+};
 export const UseSuperHeroeData = (onSuccess, onError) => {
   return useQuery("super_heroe", fetchingData, {
     onSuccess,
@@ -19,12 +19,11 @@ export const UseSuperHeroeData = (onSuccess, onError) => {
   });
 };
 
-export const useAddSuperHeroData = ()=>{
+export const useAddSuperHeroData = () => {
   const queryClient = useQueryClient();
-  return useMutation ( addSuperHero , {
-    onSuccess:()=>{
-      queryClient.invalidateQueries("super-heroes")
-    } ,
- })
-}
-                             
+  return useMutation(addSuperHero, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("super-heroes");
+    },
+  });
+};

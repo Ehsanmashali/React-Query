@@ -14,10 +14,20 @@ const DaynamicParallelPage = ({ heroeId }) => {
       };
     })
   );
+
   return (
     <>
       <h2>DaynamicParallelPage</h2>
-      {console.log({response})}
+
+      {/* {response?.map((item) => (
+        <div key={item?.data?.data?.id}>
+          {console.log(item.data?.data?.id)}
+          <p>
+            {item?.data?.data?.name} - {item?.data?.data?.alterEgo}
+          </p>
+        </div>
+      ))} */}
+      {console.log({ response })}
     </>
   );
 };
